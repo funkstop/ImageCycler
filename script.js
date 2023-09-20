@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     let images = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"];
-    let texts = ["This is a mix of two types of seaweed shaped to look like a tree. A week later and it is still not dry.", 
-            "A reminder of home - I attempted to try and create the image of a pine tree", 
-            "A flower in bloom", 
-            "Is the ocean that different from the desert?"];
+    let texts = ["A tree or monster,", 
+            "a pine tree or a broom?", 
+            "Seek out the flower,", 
+            "even in the desert, it will bloom"];
     let imageElement = document.getElementById("scrollingImage");
     let popupElement = document.getElementById("popup");
     let popupTextElement = document.getElementById("popupText");
