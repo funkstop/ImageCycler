@@ -9,6 +9,17 @@ document.addEventListener("DOMContentLoaded", function() {
     let popupTextElement = document.getElementById("popupText");
     let index = 0;
   
+    function debounce(fn, delay) {
+      let timer;
+      return function() {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          fn.apply(this, arguments);
+        }, delay);
+      }
+    }
+
+    
       // Update popup text based on current image index
     function updatePopupText() {
         popupTextElement.textContent = texts[index];
@@ -18,23 +29,26 @@ document.addEventListener("DOMContentLoaded", function() {
       let img = new Image();
       img.src = src;
     });
-  
-    // Wheel event to change image
-    window.addEventListener("wheel", function(event) {
-      event.preventDefault();
-  
-      if (event.deltaY > 0) {
-        index++;
-      } else if (event.deltaY < 0) {
-        index--;
-      }
-  
-      index = Math.min(Math.max(index, 0), images.length - 1);
-      imageElement.src = images[index];
+  // ... (rest of the code)
 
-      // Update the popup text when the image changes
-      updatePopupText();
-    });
+      const debouncedScroll = debounce(function(event) {
+        if (event.deltaY > 0) {
+          index++;
+        } else if (event.deltaY < 0) {
+          index--;
+        }
+        index = Math.min(Math.max(index, 0), images.length - 1);
+        imageElement.src = images[index];
+        updatePopupText(); // if you implemented the previous suggestion
+      }, 30);  // 20ms delay
+
+      window.addEventListener("wheel", function(event) {
+        event.preventDefault();
+        debouncedScroll(event);
+      });
+
+
+    
   
     // Click event to show/hide popup
     imageElement.addEventListener("click", function() {
