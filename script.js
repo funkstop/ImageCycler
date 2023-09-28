@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let images = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"];
     let texts = ["A tree or a monster,", 
             "a pine tree or a broom?", 
-            "Seek out the flower,", 
-            "even in the desert, it will bloom"];
+            "Searh for the flower,", 
+            "even in a desert, it will bloom"];
     let imageElement = document.getElementById("scrollingImage");
     let popupElement = document.getElementById("popup");
     let popupTextElement = document.getElementById("popupText");
