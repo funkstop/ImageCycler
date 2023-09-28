@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     let images = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"];
-    let texts = ["A tree or monster,", 
+    let texts = ["A tree or a monster,", 
             "a pine tree or a broom?", 
             "Seek out the flower,", 
             "even in the desert, it will bloom"];
